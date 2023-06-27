@@ -4,7 +4,7 @@ import ContactList from '../ContactList/ContactList';
 import Filter from '../Filter/Filter';
 import { Phonebook } from './App.styled';
 import useLocalStorage from '../../hooks/useLocalStorage';
-import toast from 'react-hot-toast';
+import toast, { Toaster } from 'react-hot-toast';
 
 function App() {
   const [contacts, setContacts] = useLocalStorage('contacts', []);
@@ -38,6 +38,15 @@ function App() {
     <Phonebook>
       <h1>Phonebook</h1>
       <ContactForm onSubmit={addContact} />
+      <Toaster
+        toastOptions={{
+          style: {
+            border: '1px solid #F65B5B',
+            padding: '20px',
+            color: '#F65B5B',
+          },
+        }}
+      />
 
       <h2>Contacts</h2>
       <Filter value={filter} onChange={changeFilter} />
